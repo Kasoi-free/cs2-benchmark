@@ -1,0 +1,179 @@
+{
+    "benchmark_timeout": 600,
+    "launch_method": "steam",
+    "game_exe": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Cities Skylines II\\Cities2.exe",
+    "steam_app_id": "949230",
+    "non_tested_defaults": {
+        "MotionBlurQualitySettings": {"enabled": false, "sampleCount": 12},
+        "TextureQualitySettings": {"mipbias": 0, "filterMode": "Trilinear"}
+    },
+    "max_quality_values": {
+        "DepthOfFieldQualitySettings": {"enabled": true, "nearSampleCount": 8, "nearMaxRadius": 7, "farSampleCount": 14, "farMaxRadius": 13, "resolution": "Half", "highQualityFiltering": true},
+        "SSGIQualitySettings": {"enabled": true, "fullscreen": false, "raySteps": 128, "denoiserRadius": 0.5, "halfResolutionPass": false, "secondDenoiserPass": true, "depthBufferThickness": 0.001},
+        "SSAOQualitySettings": {"enabled": true, "fullscreen": true, "maxPixelRadius": 80, "stepCount": 16},
+        "AntiAliasingQualitySettings": {"antiAliasingMethod": "TAA", "smaaQuality": "High", "outlinesMSAA": "MSAA8x"},
+        "CloudsQualitySettings": {"volumetricCloudsEnabled": true, "distanceCloudsEnabled": true, "volumetricCloudsShadows": true, "distanceCloudsShadows": true},
+        "FogQualitySettings": {"enabled": true},
+        "VolumetricsQualitySettings": {"enabled": true, "budget": 0.666, "resolutionDepthRatio": 0.5, "denoisingMode": "None"},
+        "SSRQualitySettings": {"enabled": true, "enabledTransparent": true, "maxRaySteps": 64},
+        "ShadowsQualitySettings": {"enabled": true, "directionalShadowResolution": 4096, "terrainCastShadows": true, "shadowCullingThresholdHeight": 1, "shadowCullingThresholdVolume": 1},
+        "TerrainQualitySettings": {"finalTessellation": 4, "targetPatchSize": 12},
+        "WaterQualitySettings": {"waterflow": true, "maxTessellationFactor": 10, "tessellationFactorFadeStart": 150, "tessellationFactorFadeRange": 1850},
+        "LevelOfDetailQualitySettings": {"levelOfDetail": 0.7, "lodCrossFade": true, "maxLightCount": 8192, "meshMemoryBudget": 2048, "strictMeshMemory": false}
+    },
+    "settings": [
+        {
+            "name": "Depth of Field",
+            "type": "DepthOfFieldQualitySettings",
+            "variants": {
+                "HIGH": {"enabled": true, "nearSampleCount": 8, "nearMaxRadius": 7, "farSampleCount": 14, "farMaxRadius": 13, "resolution": "Half", "highQualityFiltering": true},
+                "MEDIUM": {"enabled": true, "nearSampleCount": 5, "nearMaxRadius": 4, "farSampleCount": 7, "farMaxRadius": 8, "resolution": "Half", "highQualityFiltering": true},
+                "LOW": {"enabled": true, "nearSampleCount": 3, "nearMaxRadius": 2, "farSampleCount": 4, "farMaxRadius": 5, "resolution": "Quarter", "highQualityFiltering": false},
+                "VERY LOW": {"enabled": false, "nearSampleCount": 3, "nearMaxRadius": 2, "farSampleCount": 4, "farMaxRadius": 5, "resolution": "Quarter", "highQualityFiltering": false}
+            },
+            "baseline": {"enabled": false, "nearSampleCount": 8, "nearMaxRadius": 7, "farSampleCount": 14, "farMaxRadius": 13, "resolution": "Half", "highQualityFiltering": true},
+            "labels": ["HIGH", "MEDIUM", "LOW", "VERY LOW", "DISABLED: BASELINE"],
+            "col_order": ["HIGH", "MEDIUM", "LOW"]
+        },
+        {
+            "name": "Global Illumination",
+            "type": "SSGIQualitySettings",
+            "variants": {
+                "HIGH": {"enabled": true, "fullscreen": false, "raySteps": 128, "denoiserRadius": 0.5, "halfResolutionPass": false, "secondDenoiserPass": true, "depthBufferThickness": 0.001},
+                "MEDIUM": {"enabled": true, "fullscreen": false, "raySteps": 64, "denoiserRadius": 0.5, "halfResolutionPass": false, "secondDenoiserPass": true, "depthBufferThickness": 0.001},
+                "LOW": {"enabled": true, "fullscreen": false, "raySteps": 32, "denoiserRadius": 0.75, "halfResolutionPass": true, "secondDenoiserPass": true, "depthBufferThickness": 0.001}
+            },
+            "baseline": {"enabled": false, "fullscreen": false, "raySteps": 0, "denoiserRadius": 0, "halfResolutionPass": false, "secondDenoiserPass": false, "depthBufferThickness": 0},
+            "labels": ["HIGH", "MEDIUM", "LOW", "DISABLED: BASELINE"]
+        },
+        {
+            "name": "Ambient Occlusion",
+            "type": "SSAOQualitySettings",
+            "variants": {
+                "HIGH": {"enabled": true, "fullscreen": true, "maxPixelRadius": 80, "stepCount": 16},
+                "MEDIUM": {"enabled": true, "fullscreen": true, "maxPixelRadius": 40, "stepCount": 6},
+                "LOW": {"enabled": true, "fullscreen": false, "maxPixelRadius": 32, "stepCount": 4},
+                "VERY LOW": {"enabled": false, "maxPixelRadius": 32, "fullscreen": false, "stepCount": 4}
+            },
+            "baseline": {"enabled": false, "maxPixelRadius": 80, "fullscreen": true, "stepCount": 16},
+            "labels": ["HIGH", "MEDIUM", "LOW", "VERY LOW", "DISABLED: BASELINE"],
+            "col_order": ["HIGH", "MEDIUM", "LOW"]
+        },
+        {
+            "name": "Anti-Aliasing",
+            "type": "AntiAliasingQualitySettings",
+            "variants": {
+                "SMAA_HIGH": {"antiAliasingMethod": "SMAA", "smaaQuality": "High", "outlinesMSAA": "MSAA8x"},
+                "SMAA_LOW": {"antiAliasingMethod": "SMAA", "smaaQuality": "Low", "outlinesMSAA": "MSAA4x"},
+                "FXAA": {"antiAliasingMethod": "FXAA", "smaaQuality": "Low", "outlinesMSAA": "MSAA2x"},
+                "CUSTOM": {"antiAliasingMethod": "TAA", "smaaQuality": "High", "outlinesMSAA": "MSAA8x"}
+            },
+            "baseline": {"antiAliasingMethod": "None", "smaaQuality": "Low", "outlinesMSAA": "None"},
+            "labels": ["SMAA High", "SMAA Low", "FXAA", "CUSTOM (TAA, High, 8x)", "DISABLED: BASELINE"],
+            "col_order": ["SMAA_HIGH", "SMAA_LOW", "FXAA", "CUSTOM"],
+            "custom_pct_col": true
+        },
+        {
+            "name": "Clouds",
+            "type": "CloudsQualitySettings",
+            "variants": {
+                "HIGH": {"volumetricCloudsEnabled": true, "distanceCloudsEnabled": true, "volumetricCloudsShadows": true, "distanceCloudsShadows": true},
+                "MEDIUM": {"volumetricCloudsEnabled": true, "distanceCloudsEnabled": true, "volumetricCloudsShadows": false, "distanceCloudsShadows": true},
+                "LOW": {"volumetricCloudsEnabled": false, "distanceCloudsEnabled": true, "volumetricCloudsShadows": false, "distanceCloudsShadows": false},
+                "VERY LOW": {"volumetricCloudsEnabled": false, "distanceCloudsEnabled": false, "volumetricCloudsShadows": false, "distanceCloudsShadows": false}
+            },
+            "baseline": {"volumetricCloudsEnabled": false, "distanceCloudsEnabled": false, "volumetricCloudsShadows": false, "distanceCloudsShadows": false},
+            "labels": ["HIGH", "MEDIUM", "LOW", "VERY LOW", "DISABLED: BASELINE"],
+            "col_order": ["HIGH", "MEDIUM", "LOW", "VERY LOW"]
+        },
+        {
+            "name": "Fog",
+            "type": "FogQualitySettings",
+            "variants": {
+                "HIGH": {"enabled": true}
+            },
+            "baseline": {"enabled": false},
+            "labels": ["ENABLED", "DISABLED: BASELINE"],
+            "col_order": ["HIGH"]
+        },
+        {
+            "name": "Volumetrics",
+            "type": "VolumetricsQualitySettings",
+            "variants": {
+                "HIGH": {"enabled": true, "budget": 0.666, "resolutionDepthRatio": 0.5, "denoisingMode": "None"},
+                "MEDIUM": {"enabled": true, "budget": 0.33, "resolutionDepthRatio": 0.666, "denoisingMode": "None"},
+                "LOW": {"enabled": true, "budget": 0.166, "resolutionDepthRatio": 0.666, "denoisingMode": "None"},
+                "VERY LOW": {"enabled": false, "budget": 0.166, "resolutionDepthRatio": 0.666, "denoisingMode": "None"}
+            },
+            "baseline": {"enabled": false, "budget": 0.666, "resolutionDepthRatio": 0.5, "denoisingMode": "None"},
+            "labels": ["HIGH + Fog", "MEDIUM + Fog", "LOW + Fog", "VERY LOW", "DISABLED: BASELINE"],
+            "requires_fog": true,
+            "col_order": ["HIGH", "MEDIUM", "LOW"]
+        },
+        {
+            "name": "Reflections",
+            "type": "SSRQualitySettings",
+            "variants": {
+                "HIGH": {"enabled": true, "enabledTransparent": true, "maxRaySteps": 64},
+                "MEDIUM": {"enabled": true, "enabledTransparent": true, "maxRaySteps": 32},
+                "LOW": {"enabled": true, "enabledTransparent": false, "maxRaySteps": 16},
+                "VERY LOW": {"enabled": false, "enabledTransparent": false, "maxRaySteps": 16}
+            },
+            "baseline": {"enabled": false, "enabledTransparent": true, "maxRaySteps": 64},
+            "labels": ["HIGH", "MEDIUM", "LOW", "VERY LOW", "DISABLED: BASELINE"],
+            "col_order": ["HIGH", "MEDIUM", "LOW"]
+        },
+        {
+            "name": "Shadow",
+            "type": "ShadowsQualitySettings",
+            "variants": {
+                "HIGH": {"enabled": true, "directionalShadowResolution": 4096, "terrainCastShadows": true, "shadowCullingThresholdHeight": 1, "shadowCullingThresholdVolume": 1},
+                "MEDIUM": {"enabled": true, "directionalShadowResolution": 2048, "terrainCastShadows": true, "shadowCullingThresholdHeight": 1.5, "shadowCullingThresholdVolume": 1.5},
+                "LOW": {"enabled": true, "directionalShadowResolution": 1024, "terrainCastShadows": false, "shadowCullingThresholdHeight": 2, "shadowCullingThresholdVolume": 2},
+                "VERY LOW": {"enabled": false, "directionalShadowResolution": 1024, "terrainCastShadows": false, "shadowCullingThresholdHeight": 2, "shadowCullingThresholdVolume": 2}
+            },
+            "baseline": {"enabled": false, "directionalShadowResolution": 4096, "terrainCastShadows": true, "shadowCullingThresholdHeight": 1, "shadowCullingThresholdVolume": 1},
+            "labels": ["HIGH", "MEDIUM", "LOW", "VERY LOW", "DISABLED: BASELINE"],
+            "col_order": ["HIGH", "MEDIUM", "LOW"]
+        },
+        {
+            "name": "Terrain",
+            "type": "TerrainQualitySettings",
+            "variants": {
+                "HIGH": {"finalTessellation": 4, "targetPatchSize": 12},
+                "MEDIUM": {"finalTessellation": 3, "targetPatchSize": 16},
+                "LOW": {"finalTessellation": 3, "targetPatchSize": 24},
+                "VERY LOW": {"finalTessellation": 3, "targetPatchSize": 24}
+            },
+            "baseline": {"finalTessellation": 3, "targetPatchSize": 24},
+            "labels": ["HIGH", "MEDIUM", "LOW", "VERY LOW", "DISABLED: BASELINE"],
+            "col_order": ["HIGH", "MEDIUM", "LOW"]
+        },
+        {
+            "name": "Water",
+            "type": "WaterQualitySettings",
+            "variants": {
+                "HIGH": {"waterflow": true, "maxTessellationFactor": 10, "tessellationFactorFadeStart": 150, "tessellationFactorFadeRange": 1850},
+                "MEDIUM": {"waterflow": true, "maxTessellationFactor": 6, "tessellationFactorFadeStart": 150, "tessellationFactorFadeRange": 1850},
+                "LOW": {"waterflow": false, "maxTessellationFactor": 2, "tessellationFactorFadeStart": 150, "tessellationFactorFadeRange": 1850},
+                "VERY LOW": {"waterflow": false, "maxTessellationFactor": 2, "tessellationFactorFadeStart": 150, "tessellationFactorFadeRange": 1850}
+            },
+            "baseline": {"waterflow": false, "maxTessellationFactor": 2, "tessellationFactorFadeStart": 150, "tessellationFactorFadeRange": 1850},
+            "labels": ["HIGH", "MEDIUM", "LOW", "VERY LOW", "DISABLED: BASELINE"],
+            "col_order": ["HIGH", "MEDIUM", "LOW"]
+        },
+        {
+            "name": "Level of Detail",
+            "type": "LevelOfDetailQualitySettings",
+            "variants": {
+                "HIGH": {"levelOfDetail": 0.7, "lodCrossFade": true, "maxLightCount": 8192, "meshMemoryBudget": 2048, "strictMeshMemory": false},
+                "MEDIUM": {"levelOfDetail": 0.5, "lodCrossFade": true, "maxLightCount": 4096, "meshMemoryBudget": 1024, "strictMeshMemory": false},
+                "LOW": {"levelOfDetail": 0.35, "lodCrossFade": true, "maxLightCount": 2048, "meshMemoryBudget": 512, "strictMeshMemory": false},
+                "VERY LOW": {"levelOfDetail": 0.25, "lodCrossFade": false, "maxLightCount": 1024, "meshMemoryBudget": 256, "strictMeshMemory": true}
+            },
+            "baseline": {"levelOfDetail": 0.25, "lodCrossFade": false, "maxLightCount": 1024, "meshMemoryBudget": 256, "strictMeshMemory": true},
+            "labels": ["HIGH", "MEDIUM", "LOW", "VERY LOW", "DISABLED: BASELINE"],
+            "col_order": ["HIGH", "MEDIUM", "LOW", "VERY LOW"]
+        }
+    ]
+}

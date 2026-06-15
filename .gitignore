@@ -216,3 +216,10 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Vibecode scratchbook
+SESSION_SUMMARY.txt
+
+#workfiles
+benchmark_results.ods
+benchmark_results.txt
