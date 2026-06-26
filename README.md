@@ -51,7 +51,7 @@ This runs the full benchmark cycle using default settings (Steam launch, all 12 
 
 ### Launch Methods
 
-- **`steam`** — Launches via `steam://launch/949230/dialog` (default)
+- **`steam`** — Launches via `steam://launch/949230/dialog` (default, note that you need to add '-benchmark' parameter to game's Launch Options in Steam)
 - **`direct`** — Runs `Cities2.exe -benchmark` directly (set `game_exe` in config)
 
 ## How It Works
