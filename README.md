@@ -66,8 +66,10 @@ Each test: modifies config → deletes `Benchmark.coc` → launches game → pol
 
 ## Output
 
-- `benchmark_results.ods` — LibreOffice spreadsheet with summary sheet, per-setting sheets, full frame time data, and conditional formatting
-- `benchmark_results.txt` — Plain text summary with FPS and reduction percentages
+- `{version}_{date}_benchmark_results.ods` — LibreOffice spreadsheet with summary sheet, per-setting sheets, full frame time data, and conditional formatting
+- `{version}_{date}_benchmark_results.txt` — Plain text summary with FPS and reduction percentages
+
+Example: `1.6.0f1_26-06-2026_benchmark_results.ods`
 
 ## Config File
 

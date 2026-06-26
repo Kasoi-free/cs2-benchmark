@@ -221,5 +221,5 @@ __marimo__/
 SESSION_SUMMARY.txt
 
 #workfiles
-benchmark_results.ods
-benchmark_results.txt
+*_benchmark_results.ods
+*_benchmark_results.txt
