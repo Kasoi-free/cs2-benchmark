@@ -4,7 +4,7 @@ import time
 from pathlib import Path
 
 from .cli import load_config, parse_args, apply_args
-from .coc import read_coc, write_coc, get_quality_settings
+from .coc import read_coc, write_coc, get_quality_settings, extract_game_version
 from .launcher import (
     backup_settings,
     restore_settings,
@@ -68,8 +68,14 @@ def main() -> None:
     timeout = config.get("benchmark_timeout", 600)
     dry_run = args.dry_run
 
+    # Resolve paths first to get Benchmark.coc location
+    _sp, _bp, _, _ = resolve_paths(args.settings_path, args.benchmark_path, args.output_dir)
+    version = "unknown"
+    if _bp and Path(_bp).exists():
+        version = extract_game_version(_bp)
+
     settings_path, benchmark_path, output_ods, output_txt = resolve_paths(
-        args.settings_path, args.benchmark_path, args.output_dir,
+        args.settings_path, args.benchmark_path, args.output_dir, version,
     )
 
     _print_header(dry_run)

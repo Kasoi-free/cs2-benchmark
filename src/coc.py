@@ -60,3 +60,14 @@ def get_quality_settings(sections: dict[str, Any]) -> list:
     """Extract the qualitySettings array from the Graphics Settings section."""
     gs = sections.get("Graphics Settings", {})
     return gs.get("qualitySettings", [])
+
+
+def extract_game_version(path: str | Any) -> str:
+    """Read Benchmark.coc and return the short version (e.g. '1.6.0f')."""
+    sections = read_coc(path)
+    raw = ""
+    for sec in sections.values():
+        if isinstance(sec, dict) and "gameVersion" in sec:
+            raw = sec["gameVersion"]
+            break
+    return raw.split()[0] if raw else "unknown"
