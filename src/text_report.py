@@ -50,5 +50,3 @@ def create_txt(results: dict[str, Any], base_fps: float, output_path: Path, sett
 
     with open(output_path, "w", encoding="utf-8") as f:
         f.write("\n".join(lines))
-
-    print(f"  TXT written to {output_path}")

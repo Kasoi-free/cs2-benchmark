@@ -63,11 +63,16 @@ def get_quality_settings(sections: dict[str, Any]) -> list:
 
 
 def extract_game_version(path: str | Any) -> str:
-    """Read Benchmark.coc and return the short version (e.g. '1.6.0f')."""
+    """Read Benchmark.coc and return the short version (e.g. '1.6.0f1')."""
     sections = read_coc(path)
     raw = ""
     for sec in sections.values():
-        if isinstance(sec, dict) and "gameVersion" in sec:
-            raw = sec["gameVersion"]
-            break
+        if isinstance(sec, dict):
+            if "gameVersion" in sec:
+                raw = sec["gameVersion"]
+                break
+            lr = sec.get("latestResult")
+            if isinstance(lr, dict) and "gameVersion" in lr:
+                raw = lr["gameVersion"]
+                break
     return raw.split()[0] if raw else "unknown"
