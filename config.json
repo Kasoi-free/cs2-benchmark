@@ -14,7 +14,7 @@
         "AntiAliasingQualitySettings": {"antiAliasingMethod": "TAA", "smaaQuality": "High", "outlinesMSAA": "MSAA8x"},
         "CloudsQualitySettings": {"volumetricCloudsEnabled": true, "distanceCloudsEnabled": true, "volumetricCloudsShadows": true, "distanceCloudsShadows": true},
         "FogQualitySettings": {"enabled": true},
-        "VolumetricsQualitySettings": {"enabled": true, "budget": 0.666, "resolutionDepthRatio": 0.5, "denoisingMode": "None"},
+        "VolumetricsQualitySettings": {"enabled": true, "budget": 0.666, "resolutionDepthRatio": 0.5, "denoisingMode": "Reprojection"},
         "SSRQualitySettings": {"enabled": true, "enabledTransparent": true, "maxRaySteps": 64},
         "ShadowsQualitySettings": {"enabled": true, "directionalShadowResolution": 4096, "terrainCastShadows": true, "shadowCullingThresholdHeight": 1, "shadowCullingThresholdVolume": 1},
         "TerrainQualitySettings": {"finalTessellation": 4, "targetPatchSize": 12},
@@ -100,12 +100,12 @@
             "name": "Volumetrics",
             "type": "VolumetricsQualitySettings",
             "variants": {
-                "HIGH": {"enabled": true, "budget": 0.666, "resolutionDepthRatio": 0.5, "denoisingMode": "None"},
+                "HIGH": {"enabled": true, "budget": 0.666, "resolutionDepthRatio": 0.5, "denoisingMode": "Reprojection"},
                 "MEDIUM": {"enabled": true, "budget": 0.33, "resolutionDepthRatio": 0.666, "denoisingMode": "None"},
-                "LOW": {"enabled": true, "budget": 0.166, "resolutionDepthRatio": 0.666, "denoisingMode": "None"},
-                "VERY LOW": {"enabled": false, "budget": 0.166, "resolutionDepthRatio": 0.666, "denoisingMode": "None"}
+                "LOW": {"enabled": true, "budget": 0.166, "resolutionDepthRatio": 0.666, "denoisingMode": "Gaussian"},
+                "VERY LOW": {"enabled": false, "budget": 0.166, "resolutionDepthRatio": 0.666, "denoisingMode": "Gaussian"}
             },
-            "baseline": {"enabled": false, "budget": 0.666, "resolutionDepthRatio": 0.5, "denoisingMode": "None"},
+            "baseline": {"enabled": false, "budget": 0.666, "resolutionDepthRatio": 0.5, "denoisingMode": "Gaussian"},
             "labels": ["HIGH + Fog", "MEDIUM + Fog", "LOW + Fog", "VERY LOW", "DISABLED: BASELINE"],
             "requires_fog": true,
             "col_order": ["HIGH", "MEDIUM", "LOW"]
